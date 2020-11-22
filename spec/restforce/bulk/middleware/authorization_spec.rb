@@ -4,7 +4,7 @@ describe Restforce::Bulk::Middleware::Authorization do
   let(:app)            { double('app', call: nil) }
   let(:env)            { { request_headers: {}, response_headers: {} } }
   let(:options)        { { oauth_token: SecureRandom.hex } }
-  let(:client)         { Restforce.new }
+  let(:client)         { RestforceWrapper.instance.client }
   subject(:middleware) { described_class.new(app, client, options) }
 
   describe "#call(env)" do
