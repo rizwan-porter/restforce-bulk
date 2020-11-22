@@ -11,7 +11,7 @@ module Restforce
       }
 
       class << self
-        def create(operation, object_name, content_type=:csv, options={})
+        def create(operation, object_name, content_type=:xml, options={})
           builder  = Restforce::Bulk::Builder::Xml.new(operation, options)
           data     = builder.job(object_name, JOB_CONTENT_TYPE_MAPPING[content_type.to_sym])
 

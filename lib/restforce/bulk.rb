@@ -45,7 +45,7 @@ module Restforce
     }
 
     def self.client
-      @client ||= Restforce::Bulk::Client.new(RestforceWrapper.instance.client)
+      @client ||= Restforce::Bulk::Client.new
     end
 
     def self.client=(client)
