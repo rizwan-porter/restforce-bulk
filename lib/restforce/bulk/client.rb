@@ -14,7 +14,7 @@ module Restforce
         end
       end
 
-      def perform_request(method, path, data=nil, content_type=:csv, headers={})
+      def perform_request(method, path, data=nil, content_type=:xml, headers={})
         result_headers = content_type_header_for(content_type).merge(headers)
 
         connection.send(method, [base_path, path].join('/'), data, result_headers)
