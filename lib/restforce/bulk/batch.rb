@@ -4,7 +4,7 @@ module Restforce
       include Restforce::Bulk::Attributes
 
       class << self
-        def create(job_id, data, operation, content_type=:xml)
+        def create(job_id, data, operation, content_type=:csv)
           builder  = builder_class_for(content_type).new(operation)
 
           response = Restforce::Bulk.client.perform_request(:post, "job/#{job_id}/batch", builder.transform(data, operation, content_type), content_type)

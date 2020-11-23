@@ -29,7 +29,7 @@ describe Restforce::Bulk::Client do
     end
   end
 
-  describe "#perform_request(method, path, data=nil, content_type=:xml, headers={})", mock_restforce: true do
+  describe "#perform_request(method, path, data=nil, content_type=:csv, headers={})", mock_restforce: true do
     subject(:client) { Restforce::Bulk::Client.new(restforce_client) }
 
     before do
