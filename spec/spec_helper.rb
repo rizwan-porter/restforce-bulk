@@ -31,7 +31,7 @@ module RestforceMockHelpers
     Restforce::Bulk::MIME_TYPE_MAPPING[content_type.to_sym]
   end
 
-  def mock_restforce_request(mock_type, method, path, data=nil, content_type=:csv, headers={})
+  def mock_restforce_request(mock_type, method, path, data=nil, content_type=:xml, headers={})
     resulting_headers = {
       'Content-Type' => "#{mime_type_for(content_type)} ;charset=UTF-8"
     }.merge(headers)
@@ -41,11 +41,11 @@ module RestforceMockHelpers
       .with([bulk_api_base_path, path].join('/'), data, resulting_headers)
   end
 
-  def allow_restforce_request(method, path, data=nil, content_type=:csv, headers={})
+  def allow_restforce_request(method, path, data=nil, content_type=:xml, headers={})
     mock_restforce_request(:allow, method, path, data, content_type, headers)
   end
 
-  def expect_restforce_request(method, path, data=nil, content_type=:csv, headers={})
+  def expect_restforce_request(method, path, data=nil, content_type=:xml, headers={})
     mock_restforce_request(:expect, method, path, data, content_type, headers)
   end
 
