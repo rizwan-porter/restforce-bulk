@@ -62,10 +62,10 @@ module Restforce
         end
       end
 
-      def request
+      def requests
         response = Restforce::Bulk.client.perform_request(:get, "job/#{job_id}/batch/#{id}/request")
         parser   = results_parser_for(response.body).new
-        Log.i response.inspect
+        Log.i response.body
         parser.results_on(response.body).map do |result|
           Log.i result.inspect
           Restforce::Bulk::Request.new({job_id: job_id, batch_id: id}.merge(result))
