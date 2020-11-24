@@ -3,7 +3,7 @@ module Restforce
     class Request
       include Restforce::Bulk::Attributes
 
-      attr_accessor :sObject, :job_id, :batch_id
+      attr_accessor :job_id, :batch_id
 
       def initialize(attributes={})
         assign_attributes(attributes)
